@@ -1,5 +1,6 @@
-module.exports = ( { model } ) =>
-`<header>
+module.exports = function( { model } ) {
+const navOptions = model.forEach( datum => `<span>${this.CapitalizeFirstLetter(datum)}</span>` )
+return `<nav>
     <div>
         <div>
             <span>Future</span>
@@ -7,20 +8,7 @@ module.exports = ( { model } ) =>
         </div>
         <div>Software</div>
     </div>
-
-//const spans = model.map( item => `<li><span data-js="item">${item}</span></li>` ).join('')
-        //<li><ul class="spans">${spans}</ul></li>
-return `<nav>
-    <ul class="nav">
-        <li>${require('./lib/logoWhite')( { name: 'logo' } )}</li>
-        <li data-js="typeAhead"></li>
-        <li data-js="profileBtn" class="hidden">
-            ${require('./lib/profile')('profile')}
-            <ul>
-                <li data-js="name"></li>
-                <li data-js="logout">Logout</li>
-            </ul>
-        </li>
-    </ul>
-</nav>`
+    <div data-js="navList">${navOptions}</div>
+</nav>
+`
 }

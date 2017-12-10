@@ -2,7 +2,7 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
 
     $( el, selector ) { return Array.from( el.querySelectorAll( selector ) ) },
 
-    Format: require('../Format'),
+    TemplateContext: require('../TemplateContext'),
 
     Model: require('../models/__proto__'),
 
@@ -70,7 +70,7 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
     getContainer() { return this.els.container },
 
     getTemplateOptions() {
-        const rv = Object.assign( this.user ? { user: this.user.data } : {},  this.Format )
+        const rv = Object.assign( this.user ? { user: this.user.data } : {} )
 
         if( this.model ) {
             rv.model = this.model.data
@@ -183,7 +183,7 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
             insertion: this.insertion || { el: document.body },
             isView: true,
             storeFragment: this.storeFragment,
-            template: this.template( this.getTemplateOptions() )
+            template: Reflect.apply( this.template, this.TemplateContext, [ this.getTemplateOptions() ] )
         } )
 
         this.renderSubviews()

@@ -36,8 +36,8 @@
   },
   "scripts": {
     "build:css": "stylus stylus/main.styl -o static/main.css && cat static/typeahead.css static/main.css > /tmp/bundle && mv /tmp/bundle static/main.css && gzip -c static/main.css > static/main.css.gz",
-    "build:js": "scripts/writeLoadViews.js && browserify client/js/main.js -t [ babelify --presets [ env ] ] | uglifyjs > static/debug/bundle.js && gzip -c static/debug/bundle.js > static/bundle.js.gz",
-    "build:js-debug": "scripts/writeLoadViews.js && browserify client/js/main.js -o static/debug/debug.js -d -t [ babelify --presets [ env ] --ignore [ /node_modules/ ] ] && gzip -c static/debug/debug.js > static/debug/debug.js.gz",
+    "build:js": "scripts/writeAssetMaps.js && browserify client/js/main.js -t [ babelify --presets [ env ] ] | uglifyjs > static/debug/bundle.js && gzip -c static/debug/bundle.js > static/bundle.js.gz",
+    "build:js-debug": "scripts/writeAssetMaps.js && browserify client/js/main.js -o static/debug/debug.js -d -t [ babelify --presets [ env ] --ignore [ /node_modules/ ] ] && gzip -c static/debug/debug.js > static/debug/debug.js.gz",
     "build:watch": "npm run watch:css & npm run watch:js & npm run livereload",
     "livereload": "scripts/liveReload.js",
     "test": "mocha --timeout 5000",

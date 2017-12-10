@@ -4,7 +4,7 @@ module.exports = Object.create( Object.assign( {}, require('../../lib/MyObject')
     
     Views: require('./.ViewMap'),
 
-    Singletons: [ 'Dragger', 'Header', 'Toast' ],
+    Singletons: [ 'Header' ],
 
     initialize() {
 
@@ -80,6 +80,6 @@ module.exports = Object.create( Object.assign( {}, require('../../lib/MyObject')
 
     scrollToTop() {
         window.scroll( { top: 0, left: 0, behavior: 'smooth' } )
-    },
+    }
 
-}, { currentView: { value: '', writable: true }, views: { value: { } } } )
+} ), { currentView: { value: '', writable: true }, views: { value: { } } } )

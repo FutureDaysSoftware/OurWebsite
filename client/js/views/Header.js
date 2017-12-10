@@ -2,22 +2,20 @@ module.exports = Object.create( Object.assign( {}, require('./__proto__'), {
 
     User: require('../models/User'),
 
-    data: [
-        'shop',
-        'courses',
-        'events'
-    ],
-
     events: {
-        logo: 'click',
-        logout: 'click'
+        navList: 'click'
     },
 
     insertion() { return { el: document.querySelector('#content'), method: 'insertBefore' } },
 
     name: 'Header',
 
-    onLogoClick() { this.emit( 'navigate', '/' ) },
+    onNavListClick(e) {
+        const target = e.target
+        if( target.tagName !== 'SPAN' ) return
+            
+        this.emit( 'navigate', `/${target.textContent.toLowerCase()}` )
+    },
 
     onLogoutClick() {
         this.User.logout()

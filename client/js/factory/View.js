@@ -13,21 +13,21 @@ module.exports = Object.create( {
         return Object.create(
             this.Views[ name ],
             Object.assign( {
-                Dragger: { value: this.Dragger },
                 Header: { value: this.Header },
                 Toast: { value: this.Toast },
                 name: { value: name },
                 factory: { value: this },
                 range: { value: this.range },
                 template: { value: this.Templates[ name ], writable: true },
+                model: { value: this.Models[ name ] },
                 user: { value: this.User }
             } )
         ).constructor( opts )
     },
 
 }, {
-    Dragger: { value: require('../views/Dragger') },
     Header: { value: require('../views/Header') },
+    Models: { value: require('../.ModelMap') },
     Templates: { value: require('../.TemplateMap') },
     Toast: { value: require('../views/Toast') },
     User: { value: require('../models/User') },
