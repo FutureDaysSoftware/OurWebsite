@@ -224,3 +224,25 @@ textarea:focus {
     opacity: 0;
   }
 }
+.Header {
+  align-items: center;
+  color: #22679a;
+  font-weight: 300;
+  display: flex;
+  padding: 1rem;
+}
+.Header > div:first-child {
+  font-weight: bold;
+}
+.Header > div:first-child .top-name {
+  display: flex;
+}
+.Header > div:first-child .top-name > span:last-child {
+  font-weight: 300;
+}
+.Header > div:nth-child(2) {
+  margin-left: auto;
+}
+.Header > div:nth-child(2) > span {
+  margin: 0rem 1rem;
+}

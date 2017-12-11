@@ -1,8 +1,8 @@
 module.exports = function( { model } ) {
-const navOptions = model.forEach( datum => `<span>${this.CapitalizeFirstLetter(datum)}</span>` )
+const navOptions = model.map( datum => `<span>${this.CapitalizeFirstLetter(datum)}</span>` ).join('')
 return `<nav>
     <div>
-        <div>
+        <div class="top-name">
             <span>Future</span>
             <span>Days</span>
         </div>

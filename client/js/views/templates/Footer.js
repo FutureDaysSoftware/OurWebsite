@@ -1,4 +1,4 @@
-module.exports = function() { return
+module.exports = function() { return `` +
 `<footer>
     <div>
         <span>Contact</span>
@@ -8,7 +8,7 @@ module.exports = function() { return
     </div>
     <div>
         <span>Copyright</span>
-        <span>new Date().getFullYear() FutureDays Software</span>
+        <span>${new Date().getFullYear()} FutureDays Software</span>
     </div>
 </footer>`
 }

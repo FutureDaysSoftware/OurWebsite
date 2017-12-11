@@ -72,7 +72,6 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
     getTemplateOptions() {
         const rv = Object.assign( this.user ? { user: this.user.data } : {} )
 
-        console.log(this.model)
         if( this.model ) {
             rv.model = this.model.data
 
