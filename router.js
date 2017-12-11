@@ -9,7 +9,8 @@ module.exports = Object.create( Object.assign( {}, require('./lib/MyObject'), {
     handler( request, response ) {
         const path = request.url.split('/').slice(1)
             
-         if( /favicon/.test( path.join('') ) ) { response.writeHead( 301, { 'Location': `${process.env.STORAGE_URL}tree.png` } ); return response.end("") }
+         //if( /favicon/.test( path.join('') ) ) { response.writeHead( 301, { 'Location': `${process.env.STORAGE_URL}tree.png` } ); return response.end("") }
+         if( /favicon/.test( path.join('') ) ) { response.writeHead( 301, { 'Location': `https://alleganwaizard.com/favicon.ico` } ); return response.end("") }
 
         let lastPath = path[ path.length - 1 ],
             queryIndex = lastPath.indexOf('?'),
@@ -48,7 +49,7 @@ module.exports = Object.create( Object.assign( {}, require('./lib/MyObject'), {
 
         this.jsonRoutes = {}
 
-        let [ a, b, [ files ] ] = await Promise.all(
+        let [ a, [ files ] ] = await Promise.all(
             dals.map( dal => this[ dal ].initialize(this.jsonRoutes) )
             .concat( this.P( this.Fs.readdir, [ `${__dirname}/resources` ] ) )
         )
@@ -57,7 +58,7 @@ module.exports = Object.create( Object.assign( {}, require('./lib/MyObject'), {
             files.filter( name => !/^[\._]/.test(name) && /\.js/.test(name) )
             .reduce( ( memo, name ) => Object.assign( memo, { [name.replace('.js','')]: true } ), { } )
 
-        dals.forEach( dal => this[dal].objectNames.forEach( name => this.jsonRoutes[ name ] = fileHash[ name ] ? name : '__proto__' )
+        dals.forEach( dal => this[dal].objectNames.forEach( name => this.jsonRoutes[ name ] = fileHash[ name ] ? name : '__proto__' ) )
         
         Object.keys( fileHash )
             .filter( name => {

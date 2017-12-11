@@ -2,7 +2,7 @@ module.exports = p => `
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/static/css/main.css.gz">
+        <link rel="stylesheet" type="text/css" href="/static/main.css.gz">
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +14,8 @@ module.exports = p => `
         <meta property="og:type" content="article" />
  
         ${ ( p.isDev )
-            ? '<script src="/static/js/debug.js.gz"></script>'
-            : '<script src="/static/js/bundle.js.gz"></script>'
+            ? '<script src="/static/debug/debug.js.gz"></script>'
+            : '<script src="/static/bundle.js.gz"></script>'
         }      
 
         <title>${p.title}</title>

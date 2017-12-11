@@ -10,6 +10,8 @@ module.exports = Object.create( {
         const lower = name
         name = ( name.charAt(0).toUpperCase() + name.slice(1) ).replace( '-', '' )
 
+        console.log(name)
+        console.log(this.Models[name]);
         return Object.create(
             this.Views[ name ],
             Object.assign( {
@@ -19,7 +21,7 @@ module.exports = Object.create( {
                 factory: { value: this },
                 range: { value: this.range },
                 template: { value: this.Templates[ name ], writable: true },
-                model: { value: this.Models[ name ] },
+                model: { value: Object.create( this.Models[ name ] ) },
                 user: { value: this.User }
             } )
         ).constructor( opts )

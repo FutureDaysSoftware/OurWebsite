@@ -8,6 +8,8 @@ module.exports = Object.create( Object.assign( {}, require('./__proto__'), {
 
     insertion() { return { el: document.querySelector('#content'), method: 'insertBefore' } },
 
+    model: require('../models/Header'),
+
     name: 'Header',
 
     onNavListClick(e) {

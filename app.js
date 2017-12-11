@@ -3,7 +3,7 @@ require('node-env-file')( __dirname + '/.env' )
 const Router = require('./router'),
     httpPort = process.env.HTTP_PORT
 
-module.exports = async () => {
+module.exports = ( async () => {
     try {
         await Router.initialize()
 
@@ -11,6 +11,6 @@ module.exports = async () => {
 
         console.log( `HTTP server listening at ${httpPort}` )
     } catch( e ) { 
-        console.log( `Error initializing app: ${e.stack ||e}` ) )
+        console.log( `Error initializing app: ${e.stack ||e}` )
     }
-}
+} )()
