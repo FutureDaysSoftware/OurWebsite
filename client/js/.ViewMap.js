@@ -1,4 +1,5 @@
 module.exports={
 	 Footer: require('./views/Footer'),
-	Header: require('./views/Header') 
+	Header: require('./views/Header'),
+	Toast: require('./views/Toast') 
 }

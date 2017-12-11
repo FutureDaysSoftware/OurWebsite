@@ -7,20 +7,19 @@
 .autocomplete-suggestion { position: relative; padding: 0 .6em; line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.02em; color: #333; }
 .autocomplete-suggestion b { font-weight: normal; color: #1f8dd6; }
 .autocomplete-suggestion.selected { background: #f0f0f0; }
-@font-face {
-  font-family: 'Roboto';
+ {
+  font-display: swap;
+  font-family: 'Raleway';
   font-weight: normal;
-  src: url("/static/font/Roboto-Regular.ttf") format('truetype');
-}
-@font-face {
-  font-family: 'Roboto';
+  src: url("https://storage.googleapis.com/purple-monkey/Raleway/Raleway-Regular.ttf") format('truetype');
+  font-display: swap;
+  font-family: 'Raleway';
   font-weight: 700;
-  src: url("/static/font/Roboto-Bold.ttf") format('truetype');
-}
-@font-face {
-  font-family: 'Roboto';
+  src: url("https://storage.googleapis.com/purple-monkey/Raleway/Raleway-Bold.ttf") format('truetype');
+  font-display: swap;
+  font-family: 'Raleway';
   font-weight: 300;
-  src: url("/static/font/Roboto-Light.ttf") format('truetype');
+  src: url("https://storage.googleapis.com/purple-monkey/Raleway/Raleway-Light.ttf") format('truetype');
 }
 html {
   font-size: 100%;
@@ -34,7 +33,7 @@ html {
 body {
   background-color: #fff;
   height: 100%;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: Raleway, Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5rem;
