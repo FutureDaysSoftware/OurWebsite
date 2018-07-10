@@ -1,4 +1,4 @@
-module.exports = Object.assign( {}, require('./__proto__.js'), {
+module.exports = { ...require('./__proto__.js'),
 
     data: [
         'home',
@@ -6,4 +6,4 @@ module.exports = Object.assign( {}, require('./__proto__.js'), {
         'contact'
     ]
 
-} )
+}

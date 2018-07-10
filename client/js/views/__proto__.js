@@ -178,7 +178,7 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
 
     render() {
         if( this.data ) this.model = Object.create( this.Model, { } ).constructor( this.data )
-
+z
         this.slurpTemplate( {
             insertion: this.insertion || { el: document.body },
             isView: true,

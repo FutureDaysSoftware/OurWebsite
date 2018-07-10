@@ -1,24 +1,20 @@
-module.exports = Object.create( Object.assign( {}, require('../../lib/MyObject'), {
+module.exports = Object.create( { ...require('../../lib/MyObject'),
     
     ViewFactory: require('./factory/View'),
     
     Views: require('./.ViewMap'),
 
-    Singletons: [ 'Header' ],
-
     initialize() {
-
         this.contentContainer = document.querySelector('#content')
 
         this.ViewFactory.constructor();
 
-        this.Singletons.forEach( name => this.Views[name].constructor( { factory: this.ViewFactory } ) )
-
-        window.onpopstate = this.handle.bind(this)
-
-        this.Views.Header.on( 'navigate', route => this.navigate( route ) )
+        this.header = this.ViewFactory.create( 'header', { } )
+            .on( 'navigate', route => this.navigate( route ) )
 
         this.footer = this.ViewFactory.create( 'footer', { insertion: { el: document.body } } )
+        
+        window.onpopstate = this.handle.bind(this)
 
         this.handle()
     },
@@ -82,4 +78,4 @@ module.exports = Object.create( Object.assign( {}, require('../../lib/MyObject')
         window.scroll( { top: 0, left: 0, behavior: 'smooth' } )
     }
 
-} ), { currentView: { value: '', writable: true }, views: { value: { } } } )
+}, { currentView: { value: '', writable: true }, views: { value: { } } } )

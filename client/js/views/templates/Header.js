@@ -1,5 +1,5 @@
 module.exports = function( { model } ) {
-const navOptions = model.map( datum => `<span>${this.CapitalizeFirstLetter(datum)}</span>` ).join('')
+const navOptions = model.data.map( datum => `<span>${this.CapitalizeFirstLetter(datum)}</span>` ).join('')
 return `<nav>
     <div>
         <div class="top-name">

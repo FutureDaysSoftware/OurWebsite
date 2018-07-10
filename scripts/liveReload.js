@@ -3,7 +3,7 @@
 var fs = require('fs'),
     server
 
-require('node-env-file')( `${__dirname}/../.env` )
+require('dotenv').config()
 
 server = require('livereload').createServer( {
     exts: [ 'gz' ],

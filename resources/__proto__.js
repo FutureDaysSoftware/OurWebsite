@@ -12,7 +12,7 @@ module.exports = Object.assign( { }, require('../lib/MyObject'), {
 
     Mongo: require('../dal/Mongo'),
 
-    Postgres: require('../dal/Postgres'),
+    //Postgres: require('../dal/Postgres'),
 
     QueryString: require('querystring'),
 

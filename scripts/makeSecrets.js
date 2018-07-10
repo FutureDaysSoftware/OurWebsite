@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-require('node-env-file')( `${__dirname}/../.env` )
+require('dotenv').config()
 
 const MyObj = Object.create( require('../lib/MyObject'), { input: { value: process.argv[2] } } ),
       Bcrypt = require('bcrypt')

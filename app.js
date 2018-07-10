@@ -1,4 +1,4 @@
-require('node-env-file')( __dirname + '/.env' )
+require('dotenv').config()
 
 const Router = require('./router'),
     httpPort = process.env.HTTP_PORT
@@ -12,5 +12,6 @@ module.exports = ( async () => {
         console.log( `HTTP server listening at ${httpPort}` )
     } catch( e ) { 
         console.log( `Error initializing app: ${e.stack ||e}` )
+        process.exit(1);
     }
 } )()
