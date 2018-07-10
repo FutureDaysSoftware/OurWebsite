@@ -1,18 +1,18 @@
+const Factory = require('./factory/View')
+
 module.exports = Object.create( { ...require('../../lib/MyObject'),
-    
-    ViewFactory: require('./factory/View'),
-    
+   
     Views: require('./.ViewMap'),
 
     initialize() {
         this.contentContainer = document.querySelector('#content')
 
-        this.ViewFactory.constructor();
+        this.factory = new Factory
 
-        this.header = this.ViewFactory.create( 'header', { } )
+        this.header = this.factory.create( 'header', { } )
             .on( 'navigate', route => this.navigate( route ) )
 
-        this.footer = this.ViewFactory.create( 'footer', { insertion: { el: document.body } } )
+        this.footer = this.factory.create( 'footer', { insertion: { el: document.body } } )
         
         window.onpopstate = this.handle.bind(this)
 
@@ -40,7 +40,7 @@ module.exports = Object.create( { ...require('../../lib/MyObject'),
 
             return Promise.resolve(
                 this.views[ view ] =
-                    this.ViewFactory.create( view, { insertion: { el: this.contentContainer }, path } )
+                    this.factory.create( view, { insertion: { el: this.contentContainer }, path } )
                     .on( 'navigate', ( route, options ) => this.navigate( route, options ) )
                     .on( 'deleted', () => delete this.views[ view ] )
             )
